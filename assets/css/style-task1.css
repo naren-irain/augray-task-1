@@ -1,0 +1,23 @@
+body {
+    color: #505050;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0;
+}
+header {
+    background: #e1fafe;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+h1 {
+    font-size: 20px;
+    margin: 15px 0;
+}
+canvas#image_holder {
+    background: #fbfbfb;
+    border: 1px solid #48ccfb;
+    display: block;
+    margin: 0 auto;
+}
