@@ -8,7 +8,7 @@ body {
 }
 header {
     background: #e1fafe;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     overflow: hidden;
 }
 h1 {
@@ -20,4 +20,28 @@ canvas#image_holder {
     border: 1px solid #48ccfb;
     display: block;
     margin: 0 auto;
+}
+button#btn_change {
+    background: #33c2f5;
+    border: 0;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 25px 0 15px;
+    padding: 12px 30px;
+    outline: 0;
+    transition: .3s;
+}
+button#btn_change:hover {
+    background: #1da7d8;
+    box-shadow: 0 4px 2px rgba(0,0,0,0.2);
+}
+button#btn_change:active {
+    background: #33c2f5;
+    box-shadow: 0 0 0 rgba(0,0,0,0.2);
+    transition: 0s;
 }

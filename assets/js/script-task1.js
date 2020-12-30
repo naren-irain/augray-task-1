@@ -1,5 +1,5 @@
 (function ()   
-{  
+{
     'use strict';
 
     // Image files
@@ -14,42 +14,52 @@
             frameSrc    : imgPath + "img-frame-flower.jpg"
         }
     };
+    let imageSet = "set1";
+
 
     // Get canvas element
     const frameCanvas   = document.getElementById('image_holder');
     const frameCtx      = frameCanvas.getContext('2d');
 
+
     // Set Banner Image
     function setBannerImage() 
     {
-        let _x = (frameCanvas.width - this.width) / 2 + 25; // Aligning image to center
-        frameCtx.drawImage(this, _x, 40, this.width - 50, this.height - 50);
+        let _x = (frameCanvas.width - this.width) / 2 + 25,
+            _y = (frameCanvas.height - this.height) / 2 + 25; // Aligning image to center
+        frameCtx.drawImage(this, _x, _y, this.width - 50, this.height - 50);
     }
+
 
     // Set Frame Image
     function setFrameImage()
     { 
-        let _x = (frameCanvas.width - this.width) / 2; // Aligning image to center
-        frameCtx.drawImage(this, _x, 15, this.width, this.height);
+        let _x = (frameCanvas.width - this.width) / 2,
+            _y = (frameCanvas.height - this.height) / 2; // Aligning image to center
+        frameCtx.drawImage(this, _x, _y, this.width, this.height);
     }
 
-    // Load Images
+
+    // Load Images into canvas
     function loadImages(obj)
     {
-        const frameImage = new Image();
-        frameImage.onload = setFrameImage;
-        frameImage.src = obj["frameSrc"];
+        const frameImage    = new Image();
+        frameImage.onload   = setFrameImage;
+        frameImage.src      = obj["frameSrc"];
     
-        const bannerImage = new Image();
-        bannerImage.onload = setBannerImage;
-        bannerImage.src = obj["bannerSrc"];
+        const bannerImage   = new Image();
+        bannerImage.onload  = setBannerImage;
+        bannerImage.src     = obj["bannerSrc"];
     }
+    loadImages(Config[imageSet]);
 
-    loadImages(Config.set1);
-    
-    setTimeout(()=>{
+
+    // Change Image on button click
+    document.getElementById("btn_change").onclick = () => {
+        imageSet = (imageSet == "set1") ? "set2" : "set1";
         frameCtx.clearRect(0, 0, frameCanvas.width, frameCanvas.height);
-        loadImages(Config.set2);
-    }, 2500);
+        loadImages(Config[imageSet]);
+    };
+
 
 })();
