@@ -37,6 +37,12 @@
         let _x = (frameCanvas.width - this.width) / 2,
             _y = (frameCanvas.height - this.height) / 2; // Aligning image to center
         frameCtx.drawImage(this, _x, _y, this.width, this.height);
+    
+        const bannerImage   = new Image();
+        bannerImage.onload  = setBannerImage;
+        
+        const obj           = Config[imageSet];
+        bannerImage.src     = obj["bannerSrc"];
     }
 
 
@@ -46,10 +52,6 @@
         const frameImage    = new Image();
         frameImage.onload   = setFrameImage;
         frameImage.src      = obj["frameSrc"];
-    
-        const bannerImage   = new Image();
-        bannerImage.onload  = setBannerImage;
-        bannerImage.src     = obj["bannerSrc"];
     }
     loadImages(Config[imageSet]);
 
